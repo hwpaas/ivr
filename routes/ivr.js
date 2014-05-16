@@ -58,7 +58,7 @@ router.post('/', function(req, res) {
 		switch (params.Digits) {
 			case '1':
 				console.log("Patient " + p_id + " is making a new appointment.");
-				request.post(
+				/*request.post(
 					callback_url,
 					{form: {p_id: p_id}},
 					function (error, response, body) {
@@ -99,7 +99,7 @@ router.post('/', function(req, res) {
 							return;
 						}
 					}
-				);				
+				);*/				
 		}
 
 	})
