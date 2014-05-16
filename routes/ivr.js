@@ -24,8 +24,8 @@ router.post('/', function(req, res) {
 		p_number = req.body.pnumber,
 		call_from = '16469346439';
 
-  	//res.json({ message: 'patient called', pid: p_id });
-  	console.log('patient called '+p_id);
+  	res.json({ message: 'patient called', pid: p_id });
+  	//console.log('patient called '+p_id);
 
 	plivoivr.Call.outbound(call_from, p_number, ['welcome', p_id]);
 
