@@ -62,7 +62,7 @@ router.post('/', function(req, res) {
 		switch (params.Digits) {
 			case '1':
 				console.log("Patient " + p_id + " is making a new appointment.");
-				/*
+				
 				request.post(
 					callback_url,
 					{form: {p_id: p_id}},
@@ -90,8 +90,6 @@ router.post('/', function(req, res) {
 								plivo_response.send();
 								isCalled = true;
 							}
-							
-							return;
 						} else {
 							console.log("error is " + error);
 							if (response.statusCode) {
@@ -101,13 +99,13 @@ router.post('/', function(req, res) {
 							plivo_response
 								.speak("Sorry, your doctor is not available today. Goodbye.")
 								.send();
-							return;
 						}
 					}
-				);*/
+				);
+/*
 			plivo_response
 				.speak("Sorry, your doctor is not available today. Goodbye.")
-				.send();								
+				.send();			*/					
 		}
 
 	})
