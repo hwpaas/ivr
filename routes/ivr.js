@@ -63,7 +63,7 @@ plivoivr.on('welcome/:p_id', function(params, response) {
 			
 			request.post(
 				callback_url,
-				{form: {p_id: p_id}},
+				{form: {p_id: p_id, timezone: '-07:00'}},
 				function (error, response, body) {
 					if (!error && response.statusCode == 200) {
 						console.log(body);
