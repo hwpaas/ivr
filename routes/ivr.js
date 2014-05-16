@@ -43,7 +43,7 @@ plivoivr.on('welcome/:p_id', function(params, response) {
 			finishOnKey: '234567890#*',
 			timeout: 20
 		}, function() {
-			response.speak("This is from Tele Med IVR. We found irregular data from your monitor. We would like to make an appointment for you. Press 1 to make an appointment with U S doctors. Press 1 to make an appointment with doctors in U S. Press 2 to make an appointment doctors in China.Otherwise please hang up.")
+			response.speak("This is from Tele Med IVR. We found irregular data from your monitor. We would like to make an appointment for you. Press 1 to make an appointment with doctors in U S. Press 2 to make an appointment with doctors in China. Otherwise please hang up.")
 		})
 		.speak("Sorry, I didn't catch that. Please hangup.");
 
