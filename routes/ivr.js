@@ -18,15 +18,18 @@ var callback_url = PROTOCOL + "://" + CALLBACK_ADDR+":"+CALLBACK_PORT+"/database
 console.log(callback_url);
 
 /* Handles POST from other applications */
-/*
+
 router.post('/', function(req, res) {
 	var p_id = req.body.pid,
 		p_number = req.body.pnumber,
 		call_from = '16469346439';
 
-  	res.json({ message: 'patient called', pid: p_id });
+  	//res.json({ message: 'patient called', pid: p_id });
+  	console.log('patient called '+p_id);
 
 	plivoivr.Call.outbound(call_from, p_number, ['welcome', p_id]);
+
+});
 
 	plivoivr.on('welcome/:p_id', function(params, response) {
 		var p_id = params.p_id;
@@ -111,8 +114,8 @@ router.post('/', function(req, res) {
 		console.log('call ended with: ' + params.From);
 		console.log(params);
 	});
-});*/
 
+/*
 plivoivr.on('answer', function(params, response) {
     console.log('answered call from: ' + params.From);
 
@@ -202,6 +205,6 @@ plivoivr.on('answer', function(params, response) {
 .on('hangup', function(params) {
     console.log('call ended with: ' + params.From);
     console.log(params);
-});
+});*/
 
 module.exports = router;
