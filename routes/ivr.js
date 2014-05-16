@@ -99,7 +99,10 @@ router.post('/', function(req, res) {
 							return;
 						}
 					}
-				);*/				
+				);*/
+			plivo_response
+				.speak("Sorry, your doctor is not available today. Goodbye.")
+				.send();								
 		}
 
 	})
