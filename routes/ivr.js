@@ -29,6 +29,7 @@ router.post('/', function(req, res) {
 
 	plivoivr.on('welcome/:p_id', function(params, response) {
 		var p_id = params.p_id;
+		var isCalled = false;
 		console.log('calling patient ' + p_id);
 
 		response.speak("Hi.") 
@@ -42,8 +43,12 @@ router.post('/', function(req, res) {
 			}, function() {
 				response.speak("This is from Tele Med IVR. We found irregular data from your monitor. We would like to make an appointment for you. Press 1 to make an appointment. Otherwise please hang up.")
 			})
-			.speak("Sorry, I didn't catch that. Please hangup.").
-			send();
+			.speak("Sorry, I didn't catch that. Please hangup.");
+
+		if(!isCalled){
+			response.send();
+			isCalled = true;
+		}
 	})
 	.on('appointment/:p_id', function(params, response) {
 		var p_id = params.p_id;
