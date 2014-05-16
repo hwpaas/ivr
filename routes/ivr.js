@@ -42,8 +42,8 @@ router.post('/', function(req, res) {
 			}, function() {
 				response.speak("This is from Tele Med IVR. We found irregular data from your monitor. We would like to make an appointment for you. Press 1 to make an appointment. Otherwise please hang up.")
 			})
-			.speak("Sorry, I didn't catch that. Please hangup.")
-			.send();
+			.speak("Sorry, I didn't catch that. Please hangup.").
+			send();
 	})
 	.on('appointment/:p_id', function(params, response) {
 		var p_id = params.p_id;
@@ -59,6 +59,8 @@ router.post('/', function(req, res) {
 					function (error, response, body) {
 						if (!error && response.statusCode == 200) {
 							console.log(body);
+
+							var isCalled = false;
 							
 							var AppStartTime = JSON.parse(body).AppStartTime;
 							var date = moment(AppStartTime);
@@ -73,12 +75,18 @@ router.post('/', function(req, res) {
 								.wait(1)
 								.speak(minute + " minutes later.")
 								.wait(1)
-								.speak('Thanks for using this service. Goodbye.')
-								.send();
+								.speak('Thanks for using this service. Goodbye.');
+							if(!isCalled){
+								plivo_response.send();
+								isCalled = true;
+							}
+							
 							return;
 						} else {
 							console.log("error is " + error);
-							console.log("response is " + response.statusCode);
+							if (response.statusCode) {
+								console.log("response is " + response.statusCode);
+							}
 							console.log("body is " + body);
 							plivo_response
 								.speak("Sorry, your doctor is not available today. Goodbye.")
