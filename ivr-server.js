@@ -6,6 +6,7 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
+var config = require('./config');
 var routes = require('./routes/index');
 var users = require('./routes/users');
 var ivr = require('./routes/ivr');
@@ -63,8 +64,6 @@ app.use(function(err, req, res, next) {
 
 module.exports = app;
 
-var port = process.env.NODE_PORT || 3000;
-server.listen(port,function(){
-//client.subscribe('my/topic');
-console.log('Express app started on port ' + port);
+server.listen(config.port,function(){
+console.log('Express app started on port ' + config.port);
 }); 
