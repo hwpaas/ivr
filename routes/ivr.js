@@ -14,10 +14,10 @@ var plivoivr = new plivode.App({
 	});*/
 
 var plivoivr = new plivode.App({
-	config.plivoivr.appID: '17094092654309214',
-	config.plivoivr.authID: 'MANJJMYME2ZMY0NJRKYW',
-	config.plivoivr.authToken: 'N2I2ZmY2YTdlMDQ4MTVlOWU0NTVlNDBmODM3YWE5',
-	config.plivoivr.rootUrl: 'http://caas.hwpaas.com:2001/'
+		appID: config.plivoivr.appID,
+		authID: config.plivoivr.authID,
+		authToken: config.plivoivr.authToken,
+		rootUrl: config.plivoivr.rootUrl
 });
 
 /* Handles POST from other applications */
