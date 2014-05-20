@@ -1,17 +1,20 @@
 var PROTOCOL = process.env.NODE_PROTOCOL || 'http';
-var CALLBACK_ADDR = process.env.CALLBACK_PORT_9000_TCP_ADDR || 'caas.hwpaas.com';
-var CALLBACK_PORT = process.env.CALLBACK_PORT_9000_TCP_PORT || '9000';
-
-var callback_url = PROTOCOL + "://" + CALLBACK_ADDR+":"+CALLBACK_PORT+"/database/quickappointments";
 var port = process.env.NODE_PORT || 3000;
+var callback_url = PROTOCOL + "://caas.hwpaas.com:9000/database/quickappointments";
+
+var plivoivr = {
+  appID: '17094092654309214',
+  authID: 'MANJJMYME2ZMY0NJRKYW',
+  authToken: 'N2I2ZmY2YTdlMDQ4MTVlOWU0NTVlNDBmODM3YWE5',
+  rootUrl: 'http://caas.hwpaas.com:2001/'    
+};
+
+if(process.env.NODE_ENV=='production'){
+  callback_url = "http://localhost:9000/database/quickappointments"; 
+}
 
 module.exports = {
-  plivoivr : {
-    appID: '17094092654309214',
-    authID: 'MANJJMYME2ZMY0NJRKYW',
-    authToken: 'N2I2ZmY2YTdlMDQ4MTVlOWU0NTVlNDBmODM3YWE5',
-    rootUrl: 'http://caas.hwpaas.com:2001/'    
-  },
+  plivoivr: plivoivr,
   callback_url: callback_url,
   port: port
 };

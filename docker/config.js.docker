@@ -1,6 +1,6 @@
 var PROTOCOL = process.env.NODE_PROTOCOL || 'http';
-var CALLBACK_ADDR = process.env.CALLBACK_PORT_9000_TCP_ADDR || 'caas.hwpaas.com';
-var CALLBACK_PORT = process.env.CALLBACK_PORT_9000_TCP_PORT || '9000';
+var CALLBACK_ADDR = process.env.CALLBACK_1_PORT_3000_TCP_ADDR || 'caas.hwpaas.com';
+var CALLBACK_PORT = process.env.CALLBACK_1_PORT_3000_TCP_PORT || '9000';
 
 var callback_url = PROTOCOL + "://" + CALLBACK_ADDR+":"+CALLBACK_PORT+"/database/quickappointments";
 var port = process.env.NODE_PORT || 3000;
