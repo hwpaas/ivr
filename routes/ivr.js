@@ -64,7 +64,7 @@ plivoivr.on('welcome/:p_id', function(params, response) {
 	if(p_number[0]=="1"){
 		timezone='-07:00';
 	}
-	else if (p_number[0]=="8"){
+	else if (p_number[0]=="+"){
 		timezone='+08:00';
 	}
 
