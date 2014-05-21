@@ -5,20 +5,21 @@ var request = require('request');
 var moment = require('moment');
 var config = require('../config');
 
-/*
+
 var plivoivr = new plivode.App({
 		appID: '17094092654309214',
 		authID: 'MANJJMYME2ZMY0NJRKYW',
 		authToken: 'N2I2ZmY2YTdlMDQ4MTVlOWU0NTVlNDBmODM3YWE5',
 		rootUrl: 'http://caas.hwpaas.com:2001/'
-	});*/
+	});
 
+/*
 var plivoivr = new plivode.App({
 		appID: config.plivoivr.appID,
 		authID: config.plivoivr.authID,
 		authToken: config.plivoivr.authToken,
 		rootUrl: config.plivoivr.rootUrl
-});
+});*/
 
 /* Handles POST from other applications */
 
