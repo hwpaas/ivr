@@ -18,7 +18,7 @@ RUN apt-get -y install apt-utils supervisor nodejs
 # RUN apt-get clean all
 
 ADD . /var/www
-RUN cd /var/www && npm install
+RUN cd /var/www && npm install > /dev/null 2>&1
 ADD ./docker/config.js.docker /var/www/config.js
 ADD ./docker/supervisor.conf /etc/supervisor/conf.d/supervisor.conf
 RUN mkdir /var/log/ivr
