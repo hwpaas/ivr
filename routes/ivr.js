@@ -62,10 +62,10 @@ plivoivr.on('welcome/:p_id', function(params, response) {
 	var p_number = params.To;
 
 	var timezone="-07:00";
-	if(p_number[0]=="1"){
+	if(p_number[1]=="1"){
 		timezone='-07:00';
 	}
-	else if (p_number[0]=="+"){
+	else if (p_number[1]=="8"){
 		timezone='+08:00';
 	}
 
