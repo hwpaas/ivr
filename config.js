@@ -1,6 +1,6 @@
 var PROTOCOL = process.env.NODE_PROTOCOL || 'http';
 var port = process.env.NODE_PORT || 3000;
-var callback_url = PROTOCOL + "://caas.hwpaas.com:9000/database/quickappointments";
+var callback_url = PROTOCOL + "://caas.hwpaas.com/database/quickappointments";
 
 var plivoivr = {
   appID: '17094092654309214',
@@ -9,9 +9,10 @@ var plivoivr = {
   rootUrl: 'http://caas.hwpaas.com:2001/'    
 };
 
+/*
 if(process.env.NODE_ENV=='production'){
-  callback_url = "http://localhost:9000/database/quickappointments"; 
-}
+  callback_url = "http://localhost/database/quickappointments"; 
+}*/
 
 module.exports = {
   plivoivr: plivoivr,
