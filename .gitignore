@@ -33,4 +33,4 @@ node_modules
 config.js.bak
 
 # docker config
-docker 
+docker
