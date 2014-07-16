@@ -3,8 +3,7 @@ var router = express.Router();
 var plivode = require('plivode');
 var request = require('request');
 var moment = require('moment');
-var config = require('../config');
-
+var config = require('../config-'+process.env.NODE_ENV);
 
 var plivoivr = new plivode.App({
 		appID: config.plivoivr.appID,

@@ -6,17 +6,18 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
-var config = require('./config');
-var routes = require('./routes/index');
-var users = require('./routes/users');
-var ivr = require('./routes/ivr');
+process.env.NODE_ENV = process.env.NODE_ENV || 'production';
+var config = require('./config-'+process.env.NODE_ENV);
 
 var app = express();
 var server = http.createServer(app); 
 
+var index = require('./routes/index');
+var ivr = require('./routes/ivr');
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'jade');
+app.set('view engine', 'ejs');
 
 app.use(favicon());
 app.use(logger('dev'));
@@ -26,8 +27,13 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 
-app.use('/', routes);
+app.use('/', index);
 app.use('/ivr', ivr);
+
+app.get('/env', function(req, res) {
+  res.json(process.env);
+});
+
 
 /// catch 404 and forwarding to error handler
 app.use(function(req, res, next) {
@@ -40,7 +46,7 @@ app.use(function(req, res, next) {
 
 // development error handler
 // will print stacktrace
-if (app.get('env') === 'development') {
+if (app.env === 'development') {
   app.use(function(err, req, res, next) {
     res.status(err.status || 500);
     res.render('error', {
