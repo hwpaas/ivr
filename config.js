@@ -1,21 +1,22 @@
-var PROTOCOL = process.env.NODE_PROTOCOL || 'http';
-var port = process.env.NODE_PORT || 3000;
-var callback_url = "http://caas.hwpaas.com/database/quickappointments";
+//All configs are injected from environment variables
+var port = process.env.PORT || 3000;
+var callback_url = process.env.CALLBACK_URL;
 
 var plivoivr = {
-  appID: '17094092654309214',
-  authID: 'MANJJMYME2ZMY0NJRKYW',
-  authToken: 'N2I2ZmY2YTdlMDQ4MTVlOWU0NTVlNDBmODM3YWE5',
-  rootUrl: 'http://caas.hwpaas.com:2001/'    
+  appID: process.env.APP_ID,
+  authID: process.env.AUTH_ID,
+  authToken: process.env.AUTH_TOKEN,
+  rootUrl: process.env.ROOT_URL //the address to enable plivoivr, has to be on the same host  
 };
 
-/*
-if(process.env.NODE_ENV=='production'){
-  callback_url = "http://localhost/database/quickappointments"; 
-}*/
+var patientId = process.env.PATIENT_ID;
+var patientNum = process.env.PATIENT_NUM;
 
 module.exports = {
   plivoivr: plivoivr,
   callback_url: callback_url,
-  port: port
+  port: port,
+  patientId: patientId,
+  patientNum: patientNum,
+  callerNum: '13479975332'
 };
