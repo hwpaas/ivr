@@ -1,6 +1,6 @@
 var PROTOCOL = process.env.NODE_PROTOCOL || 'http';
 var port = process.env.NODE_PORT || 3000;
-var callback_url = PROTOCOL + "://caas.hwpaas.com/database/quickappointments";
+var callback_url = "http://caas.hwpaas.com/database/quickappointments";
 
 var plivoivr = {
   appID: '17094092654309214',
