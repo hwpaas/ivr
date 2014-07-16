@@ -31,3 +31,6 @@ node_modules
 
 # config secret file 
 config.js.bak
+
+# docker config
+docker 

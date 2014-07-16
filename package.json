@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "start": "node ./bin/www",
+    "start": "node ivr-server",
     "forever": "./node_modules/forever/bin/forever start ivr-server.js",    
     "stop": "./node_modules/forever/bin/forever stop ivr-server.js"
   },
