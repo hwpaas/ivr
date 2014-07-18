@@ -9,6 +9,7 @@ var plivoivr = {
   authToken: process.env.AUTH_TOKEN,
   rootUrl: process.env.ROOT_URL //the address to enable plivoivr, has to be on the same host  
 };
+var callerNum = process.env.CALLER_NUM;
 
 //patient info are injected when patient add the app
 var patientId = process.env.patientId; 
@@ -20,5 +21,5 @@ module.exports = {
   port: port,
   patientId: patientId,
   patientNum: patientNum,
-  callerNum: '13479975332'
+  callerNum: callerNum
 };
