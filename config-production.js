@@ -1,6 +1,7 @@
 //All configs are injected from environment variables
 var port = process.env.PORT || 3000;
-var callback_url = process.env.CALLBACK_URL;
+//the api endpoint on telemed server to make ivr appointment
+var callback_url = process.env.QUICK_APPOINTMENT_API;
 
 var plivoivr = {
   appID: process.env.APP_ID,
@@ -9,8 +10,9 @@ var plivoivr = {
   rootUrl: process.env.ROOT_URL //the address to enable plivoivr, has to be on the same host  
 };
 
-var patientId = process.env.PATIENT_ID;
-var patientNum = process.env.PATIENT_NUM;
+//patient info are injected when patient add the app
+var patientId = process.env.patientId; 
+var patientNum = process.env.phoneNumber;
 
 module.exports = {
   plivoivr: plivoivr,
