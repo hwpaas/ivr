@@ -19,7 +19,6 @@ RUN apt-get -y install apt-utils supervisor nodejs
 
 ADD . /var/www
 RUN cd /var/www && npm install > /dev/null 2>&1
-ADD ./docker/config.js.docker /var/www/config.js
 ADD ./docker/supervisor.conf /etc/supervisor/conf.d/supervisor.conf
 RUN mkdir /var/log/ivr
 
@@ -27,6 +26,7 @@ ENV NODE_ENV production
 ENV NODE_PORT 3000
 
 EXPOSE 3000
+EXPOSE 2001
 
 WORKDIR /var/www
 

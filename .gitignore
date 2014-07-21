@@ -30,4 +30,4 @@ node_modules
 config-development.js
 
 # docker config
-docker
+docker/config.js.docker
