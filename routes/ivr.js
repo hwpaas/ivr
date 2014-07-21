@@ -14,12 +14,20 @@ var plivoivr = new plivode.App({
 
 /* Handles POST from other applications */
 router.post('/', function(req, res) {
-	var p_id = config.patientId,
-		p_number = config.patientNum,
-		call_from = config.callerNum;
-
-  res.json({ message: 'patient called', pid: p_id });
-	plivoivr.Call.outbound(call_from, p_number, ['welcome', p_id]);
+	//get patient info from the patientApiUrl
+	request.get(config.patientApiUrl,function(err, response, body){
+		if (err) {
+			console.log('err get patient info from '+config.patientApiUrl);
+			res.json(500);
+		}
+		var patientInfo = body;
+		console.log(patientInfo);
+		var p_number = patientInfo.phoneNumber,
+			p_id = patientInfo.patientId,
+			call_from = config.callerNum;
+	  res.json({ message: 'patient called', pid: p_id });
+		plivoivr.Call.outbound(call_from, p_number, ['welcome', p_id]);
+	});
 
 });
 
